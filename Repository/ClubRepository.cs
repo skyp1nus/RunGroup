@@ -32,8 +32,7 @@ namespace MyProjectRunGroup.Repository
 
         public bool Save()
         {
-            int saved = _dbContext.SaveChanges();
-            return saved > 0 ? true : false;
+            return _dbContext.SaveChanges() > 0 ? true : false;
         }
 
         public bool Update(Club club)

@@ -1,4 +1,5 @@
 ﻿using MyProjectRunGroup.Data.Enum;
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

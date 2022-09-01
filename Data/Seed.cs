@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MyProjectRunGroup.Data;
 using MyProjectRunGroup.Data.Enum;
-using MyProjectRunGroup.Data;
 using MyProjectRunGroup.Models;
 
 namespace RunGroopWebApp.Data
@@ -12,7 +11,7 @@ namespace RunGroopWebApp.Data
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-context.Database.EnsureCreated();
+                context.Database.EnsureCreated();
 
                 if (!context.Clubs.Any())
                 {
