@@ -30,6 +30,11 @@ namespace MyProjectRunGroup.Repository
             return await _dbContext.Races.Include(address => address.Address).FirstOrDefaultAsync(race => race.Id == id);
         }
 
+        public async Task<Race> GetByIdAsyncAsNoTracking(int id)
+        {
+            return await _dbContext.Races.Include(address => address.Address).AsNoTracking().FirstOrDefaultAsync(race => race.Id == id);
+        }
+
         public bool Save()
         {
             return _dbContext.SaveChanges() > 0 ? true : false;

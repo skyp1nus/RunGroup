@@ -25,6 +25,11 @@ namespace MyProjectRunGroup.Repository
             return await _dbContext.Clubs.Include(address => address.Address).FirstOrDefaultAsync(club => club.Id == id);
         }
 
+        public async Task<Club> GetByIdAsyncAsNoTracking(int id)
+        {
+            return await _dbContext.Clubs.Include(address => address.Address).AsNoTracking().FirstOrDefaultAsync(club => club.Id == id);
+        }
+
         public async Task<IEnumerable<Club>> GetAllClubByCity(string city)
         {
             return await _dbContext.Clubs.Where(club => club.Address.City.Contains(city)).ToListAsync();
